@@ -1,8 +1,13 @@
 import os
 from azure.servicebus import ServiceBusClient, ServiceBusMessage
+from dotenv import load_dotenv
+
+load_dotenv() 
 
 conn_str = os.environ['SB_CONN_STR']
 queue_name = "deathstarstatus"
+
+print(f"Connection string: {conn_str}")
 
 app_props = {
     "producer": "producer.py",

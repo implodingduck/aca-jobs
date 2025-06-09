@@ -11,3 +11,14 @@ variable "location" {
 variable "gh_repo" {
   type = string
 }
+
+variable "sbn" {
+  type = string
+  
+}
+
+variable "sbn_rg" {
+  type = string
+  
+}
+
