@@ -128,6 +128,12 @@ resource "azurerm_role_assignment" "app_gateway_secrets" {
 }
 
 
+resource "azurerm_role_assignment" "storagequeue" {
+  scope                = azurerm_storage_account.storage.id
+  role_definition_name = "Storage Queue Data Contributor"
+  principal_id         = azurerm_user_assigned_identity.aca.principal_id
+}
+
 resource "azurerm_container_app_job" "queue" {
   name                         = "${local.func_name}-queue-manual"
   location                     = azurerm_resource_group.rg.location
@@ -283,6 +289,8 @@ resource "azurerm_storage_queue" "queue" {
   name                 = "mysamplequeue"
   storage_account_name = azurerm_storage_account.storage.name
 }
+
+
 
 resource "azapi_resource" "storagequeue" {
   type      = "Microsoft.App/jobs@2025-02-02-preview"
