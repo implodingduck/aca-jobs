@@ -19,7 +19,7 @@ client = QueueClient(account_url=ACCOUNT_URL, queue_name=QUEUE_NAME, credential=
 if client:
     print(f"I got a client! {client}")
 
- messages = client.receive_messages(max_messages=5)
+messages = client.receive_messages(max_messages=5)
 for msg in messages.by_page():
     print(f"Message: {msg.content}")
     client.delete_message(msg)
