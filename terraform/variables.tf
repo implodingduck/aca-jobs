@@ -1,5 +1,5 @@
 variable "subscription_id" {
-  type = string
+  type      = string
   sensitive = true
 }
 
@@ -14,11 +14,11 @@ variable "gh_repo" {
 
 variable "sbn" {
   type = string
-  
+
 }
 
 variable "sbn_rg" {
   type = string
-  
+
 }
 
