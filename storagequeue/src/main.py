@@ -20,7 +20,7 @@ if client:
     print(f"I got a client! {client}")
 
 messages = client.receive_messages(max_messages=5)
-for msg in messages.by_page():
+for msg in messages:
     print(f"Message: {msg.content}")
     client.delete_message(msg)
 
